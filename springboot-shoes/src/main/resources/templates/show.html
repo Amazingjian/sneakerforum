@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+   
+	<span th:if="${null!=session.user}">
+		<a href="login" th:text="${session.user.name}">a</a>
+		<a href="forelogout" >退出</a>
+	</span>
+
+
+    <span th:if="${null==session.user}">
+		<a href="login">请登录</a>
+		<a href="register">免费注册</a>
+	</span>
+</div>
+<table border="1" align="center">
+<tr>
+ <td>id</td>
+ <td>name</td>
+ <td>cid</td>
+ <td>简介</td>
+ <td>pid</td>
+ <td>修改</td>
+ <td>删除</td>
+</tr>
+  
+<tr th:each="p : ${list}" >
+ <td th:text="${p.id}"></td>
+ <td th:text="${p.name}"></td>
+ <td th:text="${p.cid}"></td>
+ <td th:text="${p.introduce}"></td>
+ <td th:text="${p.pid}"></td>
+ <td><a th:href="@{/editProduct(id=${p.id})}">修改</a></td>
+ <td><a th:href="@{/deleteProduct(id=${p.id})}">删除</a></td>
+</tr>
+<tr>
+  <td align="center"  colspan="7">
+       <a th:href="@{/addproduct-view}">新增</a>
+  </td>
+<tr>
+
+</table>
+
+
+</body>
+</html>

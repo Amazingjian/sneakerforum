@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/updateProduct}" method="post">
+<input type="hidden" name="id" th:field="${product.id}">
+  名称<input type="text" name="name" th:field="${product.name}"><br>
+  类别<input type="text" name="cid" th:field="${product.cid}"><br>
+  介绍<input type="text" name="introduce" th:field="${product.introduce}"><br>
+  图片地址<input type="text" name="pid" th:field="${product.pid}"><br>
+  <input type="submit" value="修改">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+   
+	<span th:if="${null!=session.user}">
+		<a href="login" th:text="${session.user.name}">a</a>
+		<a href="forelogout" >退出</a>
+	</span>
+
+
+    <span th:if="${null==session.user}">
+		<a href="login">请登录</a>
+		<a href="register">免费注册</a>
+	</span>
+</div>
+
+<table border="1" align="center">
+<tr>
+
+ <td>name</td>
+ <td>简介</td>
+ <td>进入讨论</td>
+</tr>
+  
+<tr th:each="p : ${ps}" >
+ <td th:text="${p.name}"></td>
+ <td th:text="${p.introduce}"></td>
+ <td><a th:href="@{/getReview(pid=${p.id})}">讨论</a></td>
+</tr>
+</table>
+
+</body>
+</html>
